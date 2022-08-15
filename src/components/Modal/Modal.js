@@ -1,5 +1,4 @@
 import s from './Modal.module.css';
-import store from '../redux/store';
 
 const Modal =({title, urlToImage, url, year, rating, closeBtn})=> {
 
@@ -23,10 +22,7 @@ const Modal =({title, urlToImage, url, year, rating, closeBtn})=> {
                 <div className="modalWindow__year">
                     {year}
                 </div>
-
             </div>
-            
-            
         </div>
     )
 }

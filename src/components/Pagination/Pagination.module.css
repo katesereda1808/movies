@@ -1,0 +1,25 @@
+.pages{
+    display: flex;
+    list-style: none;
+    font-size: 40px;
+    margin-left: 0;
+    padding-left: 0;
+}
+.pages li{
+    padding: 10px;
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.button{
+    background-color: brown;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    height: 60px;
+    font-size: 30px;
+    border-radius: 30px;
+    
+}

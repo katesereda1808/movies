@@ -6,11 +6,9 @@ const Movie =({title, urlToImage, url, year, rating, onClick})=> {
             
             <img className={s.movieItem__img} src={urlToImage}>
             </img>
-            {/* <a href={url}> */}
                 <div className={`${s.movieItem__title} ${s.movieItem__info}`}>
                 {title}
                 </div>
-            {/* </a> */}
             <div className={`${s.movieItem__rating} ${s.movieItem__info}`}>
                 {rating}
             </div>
