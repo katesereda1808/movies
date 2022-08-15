@@ -1,0 +1,26 @@
+.movieItem{
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.movieItem__img{
+
+}
+.movieItem__title{
+    font-size: 40px;
+    font-weight: 600;
+    
+}
+.movieItem__rating{
+    color: crimson;
+    font-size: 48px;
+    font-weight: 600;
+}
+.movieItem__info{
+    border: 1px solid black;
+    padding: 10px 30px;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
