@@ -1,3 +1,12 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    color: white;
+    background-color: rgb(17, 17, 23);
+}
+button{
+    cursor: pointer;
+}
 .container{
     padding: 70px 150px;
 }

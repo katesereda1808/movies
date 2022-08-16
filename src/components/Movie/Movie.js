@@ -1,5 +1,5 @@
 import s from './Movie.module.css';
-const Movie =({title, urlToImage, url, year, rating, onClick})=> {
+const Movie =({title, urlToImage, url, id, year, rating, description_full, onClick})=> {
 
     return(
         <div className={s.movieItem} onClick={onClick}>
@@ -14,6 +14,7 @@ const Movie =({title, urlToImage, url, year, rating, onClick})=> {
             </div>
             <div className={`${s.movieItem__year} ${s.movieItem__info}`}>
                 {year}
+                {/* {description_full} */}
             </div>
         </div>
     )

@@ -1,13 +1,14 @@
 .movieItem{
     display: flex;
     margin-bottom: 30px;
+    cursor: pointer;
 }
 .movieItem__img{
 
 }
 .movieItem__title{
     font-size: 40px;
-    font-weight: 600;
+    font-weight: 400;
     
 }
 .movieItem__rating{

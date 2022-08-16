@@ -9,22 +9,60 @@
     justify-content: center;
     align-items: center;
     min-width: 200px;
+    z-index: 2;
 }
-.modalWindow__container{
+.container{
     padding: 50px;
-    background-color: white;
-    color: black;
+    /* background: white; */
+    border: 1px solid white;
+    color: rgb(255, 255, 255);
     border-radius: 30px;
     min-height: 500px;
     width: 75%;
     position: relative;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
     
 }
 .close_btn{
     color: brown;
+    background: transparent;
+    border: none;
     font-size: 40px;
     position: absolute;
     top: 10px;
     right: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.movie_info{
+    display: flex;
+    
+}
+.movie_info_text{
+    padding: 0 30px;
+}
+.rating{
+    font-size: 24px;
+    
+}
+.year{
+
+}
+.title{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 38px;
+}
+.movie_comments{
+    background-color: #ffffff;
+    color: black;
+}
+.comments_box{
+    height: 150px;
+    overflow-y: scroll;
+}
+.comment_item{
+    padding: 10px;
+    margin-bottom: 10px;
 }
