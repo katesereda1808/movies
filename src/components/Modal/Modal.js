@@ -2,7 +2,7 @@ import s from './Modal.module.css';
 import Comments from '../Comments/Comments';
 
 const Modal =({title, urlToImage, url, id, year, rating, description_full, closeBtn})=> {
-
+console.log(description_full)
     return(
         <div className={s.modalWindow} >
             <div className={s.container}>
@@ -26,8 +26,6 @@ const Modal =({title, urlToImage, url, id, year, rating, description_full, close
                         </div>
                         <div className={s.description}>
                             {description_full}
-                            {id}
-
                         </div>
 
                     </div>
@@ -35,16 +33,7 @@ const Modal =({title, urlToImage, url, id, year, rating, description_full, close
                 </div>
 
                 <div className={s.movie_comments}>
-                    <div className={s.comments_box}>
                         <Comments movieId={id}/>
-                        
-
-                    </div>
-                    {/* <div className={s.write_comment}>
-                       
-
-                    </div> */}
-
                 </div>
             
                 

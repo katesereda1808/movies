@@ -27,39 +27,29 @@ class Comments extends Component {
     }
 
     addComment = (id) => {
-     
             this.setState({
               comments: [
                 ...this.state.comments,
                 {
-    
                   id: this.state.comments.length ? this.state.comments.reduce((p, c) => p.id > c.id ? p : c).id + 1 : 1,
-     
                   name: this.state.form.name,
-     
                   comment: this.state.form.comment,
-      
-                  date: new Date(),
-
+                  date: (new Date()).toDateString(),
                   movieId: id,
-     
             }
-        ],
+            ],
       
-              form: {
+            form: {
        
                 name: '',
       
                 comment: ''
       
-              }
-        
+            }
             }, () => localStorage.setItem('state', JSON.stringify(this.state)))
-        
           }
 
           removeComment = (id) => {
-      
                 this.setState({
            
                   comments: this.state.comments.filter(comment => comment.id !== id)
@@ -87,55 +77,74 @@ class Comments extends Component {
               render() {
               
                 console.log(this.state.comments)
+                const newArr = this.state.comments.filter(comment => comment.movieId === this.props.movieId);
+                console.log()
                     return (
-           
-                      <div className={s.comments}>
+                        <div className={s.comments}>
+                            <div className={s.comments_box}>
          
-                        {this.state.comments.length>0?
-                        this.state.comments.map(comment => <div key={comment.id}>
-            
-                          <span style={{ fontStyle: 'italic' }}>
-                            {comment.id} - {(comment.date, 'DD/MM/YYYY')}: 
+                                {this.state.comments.length>0?
+                                    
+                                    newArr.map(comment => <div key={comment.id}>
+                                    {/* this.newArr.map(comment => <div key={comment.id}> */}
+                                    <div className={s.comment_content}>
+                                        <div>
+                                            <div className={s.name}>
+                                                {comment.name}
+                                            </div>
+                                            <div className={s.date}>
+                                                {comment.date}
+                                            </div>
+
+                                        </div>
+                                        
+                                        
+                                        <div className={s.comment_text}>
+                                            {comment.comment}
+                                        </div>
                             
-                            </span>
-             
-                          <strong>{comment.name}, </strong>
-             
-                          <span>{comment.comment}</span>
-            
-                          <button onClick={this.removeComment.bind(null, comment.id)}>Удалить комментарий</button>
-               
+                                        <button className={s.button} onClick={this.removeComment.bind(null, comment.id)}>delete</button>
+                                        </div>
+
+                                    </div>
+                                    
+                                    ):
+                                    <></>
+                                }
+
+                            
+
+                            </div>
+                            <div className={s.newComment}>
+
+                            
+                                <input placeholder='Имя пользователя'
+
+                                type="text"
+
+                                value={this.state.form.name}
+
+                                name="name"
+
+                                onChange={this.handleChange} />
+
+                            <textarea
+
+                                name="comment"
+
+                                value={this.state.form.comment}
+
+                                onChange={this.handleChange}></textarea>
+
+                        
+
+                            <button className={s.button} onClick={()=>this.addComment(this.props.movieId)}>send</button>
+
+                            </div>
+
                         </div>
-                        ):
-                        <></>}
-             
-                        <div>
-             
-                          <label>Имя: <input
-            
-                            type="text"
-            
-                            value={this.state.form.name}
            
-                            name="name"
-             
-                            onChange={this.handleChange} /></label>
-             
-                          <label>Комментарий: <textarea
-             
-                            name="comment"
-           
-                            value={this.state.form.comment}
-               
-                            onChange={this.handleChange}></textarea>
-              
-                          </label>
-             
-                          <button onClick={()=>this.addComment(this.props.movieId)}>Добавить комментарий в {this.props.movieId}</button>
-           
-                        </div>
-              
-                      </div>
+                      
                     )
                   }
                 

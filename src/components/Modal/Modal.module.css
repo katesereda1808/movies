@@ -12,12 +12,13 @@
     z-index: 2;
 }
 .container{
-    padding: 50px;
+    padding: 45px;
     /* background: white; */
     border: 1px solid white;
     color: rgb(255, 255, 255);
     border-radius: 30px;
     min-height: 500px;
+    /* height: 80%; */
     width: 75%;
     position: relative;
     -webkit-backdrop-filter: blur(20px);
@@ -54,9 +55,14 @@
     color: #ffffff;
     font-size: 38px;
 }
+.description{
+    font-size: 24px;
+    max-height: 300px;
+    margin-top: 20px;
+}
 .movie_comments{
-    background-color: #ffffff;
-    color: black;
+    /* background-color: #ffffff; */
+    /* color: black; */
 }
 .comments_box{
     height: 150px;

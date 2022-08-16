@@ -5,7 +5,6 @@ const Pagination = ({pagesQuantity, goTo, goBack, goNext, currentPage}) => {
     const pageNumbers = [];
     for (let i = 1; i <= pagesQuantity; i++) {
         pageNumbers.push(i)
-        
     }
 
     return (

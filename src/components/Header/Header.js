@@ -6,7 +6,7 @@ class Header extends Component {
         return (
             <header className={s.header}>
                 <h1 className={s.header__tittle}>
-                    MOVIES
+                    Movies
                 </h1>
             </header>
         );

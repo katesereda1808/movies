@@ -4,8 +4,6 @@
   import { Movie } from '../Movie/Movie';
   import { Pagination } from '../Pagination/Pagination';
 
-  
-
 const Main =()=> {
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -14,11 +12,10 @@ const Main =()=> {
     const [pressed, setPressed] = useState(false);
     const [pagesQuantity, setpagesQuantity] = useState(0);
 
-
-    function handleClick(image, title, url, id, year, rating){
+    function handleClick(image, title, url, id, year, rating, description_full){
       if(!pressed){
         setPressed(true);
-        setChosenMovie({image, title, url, id, year, rating})
+        setChosenMovie({image, title, url, id, year, rating, description_full})
       } else {
         setPressed(false)
       }
@@ -33,12 +30,15 @@ const Main =()=> {
 
     }
     const goBack = (currentPage) => {
-      setCurrentPage(currentPage-1)
+      if(!((currentPage-1)<=0)){
+        setCurrentPage(currentPage-1)
+      }
     }
-    const goNext = (currentPage) => {
-      setCurrentPage(currentPage+1)
+    const goNext = (currentPage, pagesQuantity) => {
+      if(!((currentPage+1)>pagesQuantity)){
+        setCurrentPage(currentPage+1);
+      }
     }
-
 
     useEffect(()=>{
                 setLoading(true);
@@ -47,7 +47,6 @@ const Main =()=> {
                     if(resp.ok){
                         return resp.json();
                     }else{
-                      // console.log('if no resp'+' '+ resp)
                       setMovies(false);
                     }
                 })
@@ -55,18 +54,14 @@ const Main =()=> {
                     if(data){
                       // data.data.movies - список фильмов
                       let listOfMovies = data.data.movies;
-                      
                         // если данные с сервера пришли
                         if(listOfMovies.length>0){
                           console.log(data)
-                        // setMovieCount()
                         setMovies(listOfMovies);
                         const numberOfPages = Math.ceil(data.data.movie_count / itemsPerPage);
                         setpagesQuantity(numberOfPages);
                         }else{
-                          // console.log('if theres no data'+' '+ data)
                           setMovies(false);
-                          // props data
                         }
                     }
                     setLoading(false);
@@ -82,17 +77,10 @@ const Main =()=> {
       } else {
         return(
           <>
-          <Pagination pagesQuantity={pagesQuantity}
-           goTo={goTo}
-           goBack={()=>goBack(currentPage)}
-           goNext={()=>goNext(currentPage)}
-           currentPage={currentPage}
-           />
           <div className={s.container}>
               {/* если данные с сервера пришли */}
               {movies?
               <>
-              
               {movies.map(movieItem=>(
                   <Movie 
                   urlToImage={movieItem.medium_cover_image} title={movieItem.title} url={movieItem.url} 
@@ -115,6 +103,12 @@ const Main =()=> {
               :
               <></>}
           </div>
+          <Pagination pagesQuantity={pagesQuantity}
+           goTo={goTo}
+           goBack={()=>goBack(currentPage)}
+           goNext={()=>goNext(currentPage, pagesQuantity)}
+           currentPage={currentPage}
+           />
           </>
       )}
 }
