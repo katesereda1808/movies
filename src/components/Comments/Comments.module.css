@@ -47,12 +47,10 @@
     opacity: 0;
     transition: .5s;
   }
-  .button:hover:before {
+.button:hover:before {
     filter: blur(10px);
     opacity: 1;
-  }
-
-
+}
 .newComment{
     display: flex;
     flex-direction: column;

@@ -3,10 +3,8 @@ import s from './Comments.module.css';
 
 
 class Comments extends Component {
-    // const { movieId } = this.props;
     constructor(props){
         super(props);
-        
         this.state = {
             comments: [],
             form: {
@@ -16,13 +14,11 @@ class Comments extends Component {
     }
     this.addComment = this.addComment.bind(this);
     this.addComment = this.addComment.bind(this);
-    
     }
 
     componentDidMount(){
         if (localStorage.getItem('state')) {
                   this.setState({ ...JSON.parse(localStorage.getItem('state')) })
-            
                 }
     }
 
@@ -38,24 +34,17 @@ class Comments extends Component {
                   movieId: id,
             }
             ],
-      
             form: {
-       
                 name: '',
-      
                 comment: ''
-      
             }
             }, () => localStorage.setItem('state', JSON.stringify(this.state)))
           }
 
           removeComment = (id) => {
                 this.setState({
-           
                   comments: this.state.comments.filter(comment => comment.id !== id)
-           
                 }, () => localStorage.setItem('state', JSON.stringify(this.state)))
-          
               }
             
               handleChange = (e) => {
@@ -72,10 +61,8 @@ class Comments extends Component {
                         <div className={s.comments}>
                             <div className={s.comments_box}>
          
-                                {this.state.comments.length>0?
-                                    
+                                {this.state.comments.length>0?     
                                     newArr.map(comment => <div key={comment.id}>
-                                    {/* this.newArr.map(comment => <div key={comment.id}> */}
                                     <div className={s.comment_content}>
                                         <div>
                                             <div className={s.name}>
@@ -84,62 +71,36 @@ class Comments extends Component {
                                             <div className={s.date}>
                                                 {comment.date}
                                             </div>
-
                                         </div>
-                                        
-                                        
                                         <div className={s.comment_text}>
                                             {comment.comment}
                                         </div>
-                            
                                         <button className={s.button} onClick={this.removeComment.bind(null, comment.id)}>delete</button>
                                         </div>
-
                                     </div>
-                                    
                                     ):
                                     <></>
                                 }
 
-                            
-
                             </div>
                             <div className={s.newComment}>
-
-                            
                                 <input placeholder='Имя пользователя'
-
                                 type="text"
-
                                 value={this.state.form.name}
-
                                 name="name"
-
                                 onChange={this.handleChange} />
-
-                            <textarea
-
+                                <textarea
                                 name="comment"
-
                                 value={this.state.form.comment}
-
                                 onChange={this.handleChange}></textarea>
-
-                        
-
-                            <button className={s.button} onClick={()=>this.addComment(this.props.movieId)}>send</button>
-
+                                <button className={s.button} onClick={()=>this.addComment(this.props.movieId)}>
+                                  send
+                                </button>
                             </div>
-
                         </div>
-           
-                      
                     )
                   }
-                
-            
-        
 }
-export default Comments
+export default Comments;
 
 
