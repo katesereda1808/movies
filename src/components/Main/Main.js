@@ -56,7 +56,6 @@ const Main =()=> {
                       let listOfMovies = data.data.movies;
                         // если данные с сервера пришли
                         if(listOfMovies.length>0){
-                          console.log(data)
                         setMovies(listOfMovies);
                         const numberOfPages = Math.ceil(data.data.movie_count / itemsPerPage);
                         setpagesQuantity(numberOfPages);

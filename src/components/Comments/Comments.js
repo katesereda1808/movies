@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from 'react'
+import React, { Component } from 'react'
 import s from './Comments.module.css';
 
 
@@ -59,26 +59,15 @@ class Comments extends Component {
               }
             
               handleChange = (e) => {
-           
-                console.log(e.target.name)
-          
                 this.setState({
-          
                   form: {
-      
                     ...this.state.form,
-           
                     [e.target.name]: e.target.value,
-          
                   }
-          
                 })
               }
               render() {
-              
-                console.log(this.state.comments)
                 const newArr = this.state.comments.filter(comment => comment.movieId === this.props.movieId);
-                console.log()
                     return (
                         <div className={s.comments}>
                             <div className={s.comments_box}>

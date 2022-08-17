@@ -2,7 +2,6 @@ import s from './Modal.module.css';
 import Comments from '../Comments/Comments';
 
 const Modal =({title, urlToImage, url, id, year, rating, description_full, closeBtn})=> {
-console.log(description_full)
     return(
         <div className={s.modalWindow} >
             <div className={s.container}>
@@ -10,10 +9,10 @@ console.log(description_full)
                     x
                 </button>
                 <div className={s.movie_info}>
-                    <img className={s.img} src={urlToImage}>
+                    <img className={s.img} src={urlToImage} alt={s.title}>
                     </img>
                     <div className={s.movie_info_text}>
-                        <a className={s.title} href={url} target="_blank">
+                        <a className={s.title} href={url} target="_blank" rel="noreferrer">
                             <div>
                             {title}
                             </div>

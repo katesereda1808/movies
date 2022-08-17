@@ -4,7 +4,7 @@ const Movie =({title, urlToImage, url, id, year, rating, description_full, onCli
     return(
         <div className={s.movieItem} onClick={onClick}>
             
-            <img className={s.movieItem__img} src={urlToImage}>
+            <img className={s.movieItem__img} src={urlToImage} alt={s.movieItem__title}>
             </img>
                 <div className={`${s.movieItem__title} ${s.movieItem__info}`}>
                 {title}
@@ -14,7 +14,6 @@ const Movie =({title, urlToImage, url, id, year, rating, description_full, onCli
             </div>
             <div className={`${s.movieItem__year} ${s.movieItem__info}`}>
                 {year}
-                {/* {description_full} */}
             </div>
         </div>
     )
