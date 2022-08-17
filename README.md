@@ -1,3 +1,13 @@
+Caution!
+The used API might be blocked in certain countries
+In this case use VPN and choose Russia/Belarus
+
+Внимание!
+В проекте используется API сайта, заблокированного в некоторых регионах
+Если приложение не работует, используйте VPN и выберите Россию/Белоруссию
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
