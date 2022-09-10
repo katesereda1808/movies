@@ -1,3 +1,5 @@
+https://tangerine-lamington-a4db1c.netlify.app/
+
 Caution!
 The used API might be blocked in certain countries
 In this case use VPN and choose Russia/Belarus
